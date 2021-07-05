@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.sys.mapper.UserMapper">
+    <select id="getUserName" parameterType="Integer" resultType="String">
+        select userName
+        from `User`
+        where uid = #{uid}
+    </select>
+    <select id="getPermission" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select permission
+        from `User`
+        where uid = #{uid}
+    </select>
+    <select id="checkUid" parameterType="java.lang.Integer" resultType="Boolean">
+        select uid
+        from `User`
+        where uid = #{uid}
+    </select>
+    <update id="deleteUser" parameterType="java.lang.Integer">
+        update `User`
+        set deleted = 1
+        where uid = #{uid}
+    </update>
+    <insert id="createUser" parameterType="com.luo.sys.entity.User">
+        insert into `User` (uid, permission, userName, password, sex, age, email, deleted)
+        values (#{uid}, #{permission}, #{userName}, #{password}, #{sex}, #{age}, #{email}, #{deleted})
+    </insert>
+    <insert id="createTeacher" parameterType="com.luo.sys.entity.TeacherInformation">
+        insert into `TeacherInformation` (uid, collage, home)
+        values (#{uid}, #{collage}, #{home})
+    </insert>
+    <insert id="createStu" parameterType="com.luo.sys.entity.StudentInformation">
+        insert into `StudentInformation` (`uid`, `collage`, `grade`, `major`, `group`, `studyYear`, `home`)
+        values (#{uid}, #{collage}, #{grade}, #{major}, #{group}, #{studyYear}, #{home})
+    </insert>
+    <insert id="createStuScore" parameterType="com.luo.sys.entity.StudentScore">
+        insert into `StudentScore` (`uid`, `math`, `english`, `clang`, `python`, `history`, `physics`, `cpp`)
+        values (#{uid}, #{math}, #{english}, #{clang}, #{python}, #{history}, #{physics}, #{cpp})
+    </insert>
+    <select id="getStuInformation" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select *
+        from `StudentInformation`
+        where uid = #{uid}
+    </select>
+    <select id="getStuScore" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select *
+        from `StudentScore`
+        where uid = #{uid}
+    </select>
+    <update id="updateEmail">
+        update `User`
+        set email = #{email,jdbcType=VARCHAR}
+        where uid = #{uid,jdbcType=INTEGER}
+    </update>
+    <update id="updatePermission">
+        update `USER`
+        set permission = #{permission,jdbcType=INTEGER}
+        where uid = #{uid,jdbcType=INTEGER};
+    </update>
+    <select id="checkRoot" parameterType="Integer" resultType="Boolean">
+        select *
+        from `User`
+        where uid = #{uid}
+        and userName = "root"
+        and permission = 0
+    </select>
+    <select id="getPassword" parameterType="Integer" resultType="String">
+        select password from `User` where uid = #{uid}
+    </select>
+    <select id="Login" resultType="INTEGER" >
+        select permission from `User` where uid = #{uid,jdbcType=INTEGER} and password = #{password,jdbcType=VARCHAR}
+    </select>
+</mapper>

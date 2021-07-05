@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Operate</title>
+    <link rel="stylesheet" type="text/css" href="/css/menuList.css">
+    <link rel="stylesheet" type="text/css" href="/css/two.css">
+    <script src="/js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".menu_nva:eq(0)").show();
+            $("h3.menu_head").click(function () {
+                $(this).addClass("current").next("div.menu_nva").slideToggle(200).siblings("div.menu_nva").slideUp("slow");
+                $(this).siblings().removeClass("current");
+            });
+            $(".menu_nva:eq(0)").show();
+            $("h3.menu_head").mouseover(function () {
+                $(this).addClass("current").next("div.menu_nva").slideDown(400).siblings("div.menu_nva").slideUp("slow");
+                $(this).siblings().removeClass("current");
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="warpDiv">
+    <div id="firstDiv" class="menu_list">
+        <h3 class="menu_head current">Account Manage</h3>
+        <div style="display:block" class="menu_nva">
+            <a href="#">&nbsp;&nbsp;Student Account Create</a><br>
+            <a href="#">&nbsp;&nbsp;Student Account Edit</a><br>
+            <a href="#">&nbsp;&nbsp;Student Account Delete</a><br>
+            <a href="#">&nbsp;&nbsp;Search uid</a>
+        </div>
+        <h3 class="menu_head">Score Edit</h3>
+        <div style="display:none" class="menu_nva">
+            <a href="#">&nbsp;&nbsp;`Student Score Edit</a>
+        </div>
+    </div>
+    <div id="rightDiv">
+        <p class="titleFont">Welcome</p>
+    </div>
+</div>
+</body>
+</html>

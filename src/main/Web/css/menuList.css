@@ -1,0 +1,52 @@
+.menu_list {
+    width: 268px;
+    margin: 0;
+}
+.menu_head {
+    height: 47px;
+    line-height: 47px;
+    padding-left: 38px;
+    font-size: 14px;
+    color: #525252;
+    cursor: pointer;
+    border: 1px solid #f1f1f1;
+    position: relative;
+    font-weight: bold;
+    background: #51a9f18c;
+    border-radius: 18px;
+    margin: 0;
+    font-family: "Microsoft YaHei Light";
+}
+
+.menu_list .current {
+    background: #51a9f18c;
+}
+
+.menu_nva {
+    margin-top: 10px;
+    line-height: 28px;
+    border-left: 1px solid #51a9f18c;
+    background-color: tan;
+    border-right: 1px solid #51a9f18c;
+    border-radius: 18px;
+}
+
+.menu_nva a {
+    background-color: tan;
+    text-decoration:none;
+    font-family: "Microsoft YaHei Light";
+    margin-left: 20px;
+}
+
+#firstDiv {
+
+}
+
+#rightDiv{
+    margin-left: 300px;
+}
+
+#warpDiv{
+    display: flex;
+    flex-direction: row;
+}

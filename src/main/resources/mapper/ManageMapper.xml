@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.sys.mapper.ManageMapper">
+    <insert id="createStu" parameterType="com.luo.sys.entity.StudentInformation">
+        insert into `StudentInformation` (`uid`, `collage`, `grade`, `major`, `group`, `studyYear`, `home`)
+        values (#{uid}, #{collage}, #{grade}, #{major}, #{group}, #{studyYear}, #{home})
+    </insert>
+    <insert id="createStuScore" parameterType="com.luo.sys.entity.StudentScore">
+        insert into `StudentScore` (`uid`, `math`, `english`, `clang`, `python`, `history`, `physics`, `cpp`)
+        values (#{uid}, #{math}, #{english}, #{clang}, #{python}, #{history}, #{physics}, #{cpp})
+    </insert>
+    <select id="getStuInformation" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select *
+        from `StudentInformation`
+        where uid = #{uid}
+    </select>
+    <select id="getStuScore" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select *
+        from `StudentScore`
+        where uid = #{uid}
+    </select>
+    <update id="deleteUser" parameterType="java.lang.Integer">
+        update `User`
+        set deleted = 1
+        where uid = #{uid}
+    </update>
+</mapper>
