@@ -16,8 +16,9 @@ INSERT into User (permission, username, password, sex, age, email, deleted) valu
 create table `TeacherInformation`
 (
     `uid` INTEGER NOT NULL PRIMARY KEY,
-    `collage` VARCHAR(32) NOT NULL ,
-    `home` VARCHAR(64) NOT NULL
+    `home` VARCHAR(64) NOT NULL,
+    foreign ke    `collage` VARCHAR(32) NOT NULL ,
+    y(uid) references User(uid)
 );
 
 create table `StudentInformation`
@@ -33,11 +34,11 @@ create table `StudentInformation`
 create table `StudentScore`
 (
     `uid` INTEGER NOT NULL PRIMARY KEY,
-    `math` INTEGER NOT NULL DEFAULT -1,
-    `english` INTEGER NOT NULL DEFAULT -1,
-    `clang` INTEGER NOT NULL DEFAULT -1,
-    `python` INTEGER NOT NULL DEFAULT -1,
-    `history` INTEGER NOT NULL DEFAULT -1,
-    `physics` INTEGER NOT NULL DEFAULT -1,
-    `cpp` INTEGER NOT NULL DEFAULT -1
+    `math` INTEGER DEFAULT -1,
+    `english` INTEGER DEFAULT -1,
+    `clang` INTEGER DEFAULT -1,
+    `python` INTEGER DEFAULT -1,
+    `history` INTEGER DEFAULT -1,
+    `physics` INTEGER DEFAULT -1,
+    `cpp` INTEGER DEFAULT -1
 );

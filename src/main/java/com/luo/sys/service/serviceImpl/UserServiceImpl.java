@@ -9,6 +9,7 @@ import com.luo.sys.service.UserService;
 import com.luo.sys.util.MapperUtils;
 
 
+import java.util.List;
 import java.util.Map;
 
 public class UserServiceImpl implements UserService {
@@ -92,5 +93,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer Login(Integer uid, String password) {
         return userMapper.Login(uid,password);
+    }
+
+    @Override
+    public Integer getUid(String username) {
+        return userMapper.getUid(username);
+    }
+
+    @Override
+    public void setScore(StudentScore studentScore){
+        userMapper.setScore(studentScore);
+    }
+
+    @Override
+    public List<User> getUser(Integer uid)
+    {
+        return userMapper.getUser(uid);
     }
 }

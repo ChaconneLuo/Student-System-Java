@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Account Create</title>
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+</head>
+<body>
+<div class="head">
+    <div class="formDiv">
+        <form action="StudentAccountCreate" method="post">
+            <p>UserName:&nbsp;&nbsp; <input type="text" name="username" maxlength="32"></p>
+            <p>Password:&nbsp;&nbsp; <input type="password" maxlength="64" name="password"></p>
+            <p><label for="man">Man:</label><input type="radio" name="sex" value="man" id="man" checked="checked">&nbsp;&nbsp;&nbsp;
+                <label for="woman">Woman:</label> <input type="radio" name="sex" value="woman" id="woman"></p>
+            <p>Major:&nbsp;<input type="text" maxlength="64" name="major"></p>
+            <p>Group:&nbsp;<input type="number" name="group"></p>
+            <p>StudyYear:&nbsp;<input type="number" name="studyYear"></p>
+            <p>Age:&nbsp;<input type="number" name="age"></p>
+            <p>Grade:&nbsp;<input type="number" name="grade"></p>
+            <p>Home:&nbsp;<input type="text" name="home">
+            <p>Email:&nbsp;<input type="text" name="email"></p>
+            <p>Collage:&nbsp; <select  name="collage">
+                <option>Computer</option>
+                <option>Software</option>
+                <option>Communication</option>
+            </select></p>
+            <input type="button" value="back" name="back" onclick="history.back(-1)">&nbsp;<input type="submit">
+        </form>
+    </div>
+</div>
+</body>
+</html>

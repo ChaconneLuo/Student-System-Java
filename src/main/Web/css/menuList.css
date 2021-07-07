@@ -16,6 +16,7 @@
     border-radius: 18px;
     margin: 0;
     font-family: "Microsoft YaHei Light";
+    opacity: 50%;
 }
 
 .menu_list .current {

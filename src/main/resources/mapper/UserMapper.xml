@@ -63,13 +63,37 @@
         select *
         from `User`
         where uid = #{uid}
-        and userName = "root"
-        and permission = 0
+          and userName = "root"
+          and permission = 0
     </select>
     <select id="getPassword" parameterType="Integer" resultType="String">
-        select password from `User` where uid = #{uid}
+        select password
+        from `User`
+        where uid = #{uid}
     </select>
-    <select id="Login" resultType="INTEGER" >
-        select permission from `User` where uid = #{uid,jdbcType=INTEGER} and password = #{password,jdbcType=VARCHAR}
+    <select id="Login" resultType="INTEGER">
+        select permission
+        from `User`
+        where uid = #{uid,jdbcType=INTEGER}
+          and password = #{password,jdbcType=VARCHAR}
+    </select>
+    <select id="getUid" parameterType="String" resultType="Integer">
+        select uid
+        from `User`
+        where username = #{username}
+    </select>
+    <update id="setScore" parameterType="com.luo.sys.entity.StudentScore">
+        update `StudentScore`
+        set math = #{math} and
+        set english = #{english} and
+        set clang = #{clang} and
+        set python = #{python} and
+        set history=#{history} and
+        set physics=#{physics} and
+        set cpp = #{cpp}
+        where uid = #{uid}
+    </update>
+    <select id="getUser" parameterType="Integer" resultType="List">
+        select * from `User` where uid =#{uid}
     </select>
 </mapper>

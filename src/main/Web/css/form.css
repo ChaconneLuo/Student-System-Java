@@ -1,0 +1,30 @@
+body {
+    font-family: "Microsoft YaHei Light";
+    text-align: center;
+    background-color: lightgrey;
+}
+form {
+    border: none;
+    border-radius: 20px;
+    align-items: center;
+    width: 255px;
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+}
+.formDiv{
+    border-radius: 20px;
+    border: aquamarine;
+    display: flex;
+}
+
+input{
+    border-radius: 10px;
+    border: none;
+}
+input:active{
+    border: none;
+    border-radius: 10px;
+}

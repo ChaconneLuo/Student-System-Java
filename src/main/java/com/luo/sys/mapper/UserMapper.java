@@ -7,6 +7,7 @@ import com.luo.sys.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 @Mapper
@@ -40,4 +41,10 @@ public interface UserMapper {
     String getPassword(Integer uid);
 
     Integer Login(@Param("uid") Integer uid,@Param("password")String password);
+
+    Integer getUid(String username);
+
+    void setScore(StudentScore studentScore);
+
+    List<User> getUser(Integer uid);
 }
