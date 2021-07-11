@@ -25,7 +25,7 @@ public class StudentAccountDeleteServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        var uid = req.getParameter("uid");
+        String uid = req.getParameter("uid");
         if(uid != null)
         {
             userService.deleteUser(Integer.valueOf(uid));

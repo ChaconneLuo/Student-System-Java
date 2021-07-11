@@ -1,5 +1,6 @@
 package com.luo.sys.util;
 
+import lombok.var;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -12,7 +13,7 @@ public class MapperUtils {
     private static SqlSession sqlSession;
 
     static {
-        try(var config = Resources.getResourceAsStream("mybatisConfig.xml")) {
+        try (var config = Resources.getResourceAsStream("mybatisConfig.xml")) {
             var sessionFactory = new SqlSessionFactoryBuilder().build(config);
             sqlSession = sessionFactory.openSession(true);
         } catch (IOException e) {
@@ -20,8 +21,7 @@ public class MapperUtils {
         }
     }
 
-    public static  <T> T getMapper(Class<T> requiredType)
-    {
+    public static <T> T getMapper(Class<T> requiredType) {
         return sqlSession.getMapper(requiredType);
     }
 }

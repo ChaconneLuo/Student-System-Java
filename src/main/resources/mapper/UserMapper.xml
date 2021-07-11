@@ -93,7 +93,7 @@
         set cpp = #{cpp}
         where uid = #{uid}
     </update>
-    <select id="getUser" parameterType="Integer" resultType="List">
+    <select id="getUser" parameterType="Integer" resultType="com.luo.sys.entity.User">
         select * from `User` where uid =#{uid}
     </select>
 </mapper>
