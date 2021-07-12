@@ -17,8 +17,7 @@ create table `TeacherInformation`
 (
     `uid` INTEGER NOT NULL PRIMARY KEY,
     `home` VARCHAR(64) NOT NULL,
-    foreign ke    `collage` VARCHAR(32) NOT NULL ,
-    y(uid) references User(uid)
+    `collage` VARCHAR(32) NOT NULL
 );
 
 create table `StudentInformation`
