@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Operate</title>
+    <title>Manage Operate</title>
     <link rel="stylesheet" type="text/css" href="/css/menuList.css">
     <link rel="stylesheet" type="text/css" href="/css/two.css">
-    <script src="/js/jquery.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $(".menu_nva:eq(0)").show();
@@ -26,10 +26,13 @@
     <div id="firstDiv" class="menu_list">
         <h3 class="menu_head current">Account Manage</h3>
         <div style="display:block" class="menu_nva">
+            <a href="StudentAccountCreate.html">&nbsp;&nbsp;Student Account Create</a><br>
+            <a href="StudentAccountDelete.html">&nbsp;&nbsp;Student Account Delete</a><br>
+            <a href="SearchUid.html">&nbsp;&nbsp;Search uid</a>
         </div>
         <h3 class="menu_head">Score Edit</h3>
         <div style="display:none" class="menu_nva">
-            <a href="./GetStudentScore.html">Student Score Inquiry</a>
+            <a href="StudentScoreEdit.html">&nbsp;&nbsp;Student Score Edit</a>
         </div>
     </div>
     <div id="rightDiv">

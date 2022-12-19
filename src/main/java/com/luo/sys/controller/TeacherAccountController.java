@@ -1,32 +1,24 @@
-package com.luo.sys.controller.servlet;
+package com.luo.sys.controller;
 
 import com.luo.sys.entity.TeacherInformation;
 import com.luo.sys.entity.User;
 import com.luo.sys.service.UserService;
-import com.luo.sys.service.serviceImpl.UserServiceImpl;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Operate/TeacherAccountCreate")
-public class TeacherAccountCreateServlet extends HttpServlet {
+@Controller
+@RequiredArgsConstructor
+public class TeacherAccountController {
     private final UserService userService;
 
-    public TeacherAccountCreateServlet() {
-        userService = new UserServiceImpl();
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @PostMapping("/Operate/TeacherAccountCreate")
+    public void create(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String sex = req.getParameter("sex");
@@ -34,8 +26,7 @@ public class TeacherAccountCreateServlet extends HttpServlet {
         String age = req.getParameter("age");
         String home = req.getParameter("home");
         String email = req.getParameter("email");
-        if (userService.getUid(username) != null)
-        {
+        if (userService.getUid(username) != null) {
             resp.getWriter().print("<script>history.back(-1)</script>");
         }
         else
@@ -47,7 +38,17 @@ public class TeacherAccountCreateServlet extends HttpServlet {
             Integer uid = userService.getUid(username);
             TeacherInformation teacherInformation = new TeacherInformation(uid,collage,home);
             userService.createTeacher(teacherInformation);
-            resp.sendRedirect("/Login/Success.html");
+            resp.sendRedirect("./Login/Success.html");
+        }
+    }
+
+    @PostMapping("/Operate/TeacherAccountDelete")
+    public void delete(@RequestParam("uid") String uid, HttpServletResponse resp) throws IOException {
+        if (uid != null) {
+            userService.deleteUser(Integer.valueOf(uid));
+            resp.sendRedirect("./Login/Success.html");
+        } else {
+
         }
     }
 }

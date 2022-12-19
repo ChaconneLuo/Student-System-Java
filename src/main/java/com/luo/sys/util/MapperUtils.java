@@ -1,12 +1,10 @@
 package com.luo.sys.util;
 
-import lombok.var;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class MapperUtils {
 

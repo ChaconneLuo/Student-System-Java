@@ -7,16 +7,16 @@ import com.luo.sys.entity.User;
 import com.luo.sys.mapper.UserMapper;
 import com.luo.sys.service.UserService;
 import com.luo.sys.util.MapperUtils;
-
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
-    public UserServiceImpl()
-    {
+    public UserServiceImpl() {
         userMapper = MapperUtils.getMapper(UserMapper.class);
     }
 
@@ -106,8 +106,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUser(Integer uid)
-    {
+    public List<User> getUser(Integer uid) {
         return userMapper.getUser(uid);
     }
 }

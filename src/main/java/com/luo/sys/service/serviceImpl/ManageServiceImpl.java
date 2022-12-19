@@ -6,9 +6,11 @@ import com.luo.sys.entity.User;
 import com.luo.sys.mapper.ManageMapper;
 import com.luo.sys.service.ManageService;
 import com.luo.sys.util.MapperUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+@Service
 public class ManageServiceImpl implements ManageService {
 
     private final ManageMapper manageMapper;
